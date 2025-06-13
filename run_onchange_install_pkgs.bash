@@ -14,7 +14,8 @@ function main() {
         firefox \
         polkit \
         fish \
-        cool-retro-term
+        cool-retro-term \
+        less
         # bat
         # micro
         # tldr
