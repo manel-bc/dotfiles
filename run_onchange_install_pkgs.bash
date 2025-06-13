@@ -13,7 +13,8 @@ function main() {
         --noconfirm \
         firefox \
         polkit \
-        fish
+        fish \
+        cool-retro-term
         # bat
         # micro
         # tldr
@@ -41,6 +42,11 @@ function install_yay() {
         && git clone https://aur.archlinux.org/yay-bin.git \
         && cd yay-bin \
         && makepkg -si
+}
+
+function set_up_fish() {
+    # Disable greeting
+    fish -c "set -U fish_greeting"
 }
 
 main "$@"

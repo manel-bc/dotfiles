@@ -10,6 +10,7 @@ alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
 export EDITOR=micro
+export TERM=cool-retro-term
 
 # Only dtop into fish shell if parent is not fish
 # Also allow for bash -c "echo hello" to run in bash
