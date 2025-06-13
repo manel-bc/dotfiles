@@ -3,8 +3,13 @@
 ## THIS SCRIPT MUST BE IDEMPOTENT
 
 function main() {
+    cd "$(mktemp -d)"
+
+    install_yay
+
     # Install packages
-    yay -S \
+    yay --sync \
+        --needed \
         --noconfirm \
         firefox \
         polkit

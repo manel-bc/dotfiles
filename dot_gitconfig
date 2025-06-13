@@ -1,0 +1,6 @@
+[user]
+	email = manelbc+github@pm.me
+	name = manel-bc
+[core]
+	editor = micro
+	autoclrf = input
