@@ -12,7 +12,8 @@ function main() {
         --needed \
         --noconfirm \
         firefox \
-        polkit
+        polkit \
+        fish
         # bat
         # micro
         # tldr
@@ -20,7 +21,6 @@ function main() {
         # fzf
         # btop
         # diff-so-fancy
-        # fish
         # vscodium-bin
 }
 
