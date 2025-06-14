@@ -12,6 +12,9 @@ set $term cool-retro-term
 # Your preferred application launcher
 set $menu wmenu-run
 
+# Fonts
+font pango:JetBrains Mono 10
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)

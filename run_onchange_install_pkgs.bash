@@ -7,29 +7,46 @@ function main() {
 
     install_yay
 
+    set_up_sound
+
     # Install packages
-    yay --sync \
-        --needed \
-        --noconfirm \
+    yay_install \
         firefox \
         polkit \
         fish \
         cool-retro-term \
         less \
-        bat
-        # micro
-        # tldr
+        bat \
+        ttf-dejavu \
+        ttf-jetbrains-mono \
+        nerd-fonts \
+        noto-fonts-cjk \
+        micro \
+        btop \
+        tldr \
+        vscodium-bin
         # navi
         # fzf
-        # btop
         # diff-so-fancy
-        # vscodium-bin
+        
 }
 
 function prompt() {
     msg="$1"; shift
     echo "$msg"
     read -p "Press key to continue.. " -n1 -s
+}
+
+function yay_install() {
+    pkgs="$@"
+
+    yay --sync \
+        --needed \
+        --noconfirm \
+        $pkgs \
+            2> >( grep -v "is up to date -- skipping" >&2 ) \
+            | grep -v "there is nothing to do"
+
 }
 
 function install_yay() {
@@ -48,6 +65,21 @@ function install_yay() {
 function set_up_fish() {
     # Disable greeting
     fish -c "set -U fish_greeting"
+}
+
+function set_up_sound() {
+    # Needed for pwvucontrol
+    ensure_rust
+
+    yay_install \
+        pipewire \
+        wireplumber \
+        pwvucontrol
+}
+
+function ensure_rust() {
+    yay_install rustup
+    rustup toolchain install stable --no-self-update
 }
 
 main "$@"
