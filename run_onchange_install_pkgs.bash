@@ -15,8 +15,8 @@ function main() {
         polkit \
         fish \
         cool-retro-term \
-        less
-        # bat
+        less \
+        bat
         # micro
         # tldr
         # navi
