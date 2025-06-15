@@ -14,7 +14,7 @@ function main() {
         firefox \
         polkit \
         fish \
-        cool-retro-term \
+        alacritty \
         less \
         bat \
         ttf-dejavu \
@@ -75,6 +75,10 @@ function set_up_sound() {
         pipewire \
         wireplumber \
         pwvucontrol
+}
+
+function set_up_launcher() {
+    echo ""
 }
 
 function ensure_rust() {
