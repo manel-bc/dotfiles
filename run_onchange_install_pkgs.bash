@@ -24,9 +24,9 @@ function main() {
         micro \
         btop \
         tldr \
-        vscodium-bin
+        vscodium-bin \
+        fzf
         # navi
-        # fzf
         # diff-so-fancy
         
 }
