@@ -7,8 +7,6 @@ set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
-set $term alacritty
 # Your preferred application launcher
 set $menu wmenu-run
 
@@ -49,7 +47,7 @@ input type:keyboard {
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec $term
+    bindsym $mod+Return exec alacritty
 
     # Kill focused window
     bindsym $mod+shift+q kill
