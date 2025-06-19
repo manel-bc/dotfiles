@@ -25,7 +25,8 @@ function main() {
         btop \
         tldr \
         vscodium-bin \
-        fzf
+        fzf \
+        thunar thunar-volman thunar-archive-plugin gvfs
         # navi
         # diff-so-fancy
         
