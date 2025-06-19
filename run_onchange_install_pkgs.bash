@@ -26,7 +26,8 @@ function main() {
         tldr \
         vscodium-bin \
         fzf \
-        thunar thunar-volman thunar-archive-plugin gvfs
+        thunar thunar-volman thunar-archive-plugin gvfs \
+        telegram-desktop
         # navi
         # diff-so-fancy
         
