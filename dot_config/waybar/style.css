@@ -2,7 +2,7 @@
     border: none;
     border-radius: 0;
     min-height: 0;
-    font-family: "iosevka nerd font";
+    font-family: "JetBrains Mono";
     font-weight: 500;
     font-size: 14px;
     padding: 0;
@@ -44,7 +44,8 @@ tooltip {
 }
 
 #workspaces button.focused {
-    color: #ddc7a1;
+    color: #303536;
+    background-color: #ddc7a1;
 }
 
 #workspaces button.urgent {
