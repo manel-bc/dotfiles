@@ -10,6 +10,9 @@ function main() {
     set_up_fish
     set_up_sound
     set_up_ssh_agent
+    set_up_steam
+
+    # properly install and configure nerd font, emojis and asian font
 
     # Install packages
     yay_install \
@@ -18,10 +21,7 @@ function main() {
         alacritty \
         less \
         bat \
-        ttf-dejavu \
         ttf-jetbrains-mono \
-        nerd-fonts \
-        noto-fonts-cjk \
         micro \
         btop \
         tldr \
@@ -57,7 +57,7 @@ function yay_install() {
 function install_yay() {
     sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 
-    if command -v yay >/dev/null 2>&1
+    if type yay >/dev/null 2>&1
     then
         return
     fi
@@ -98,6 +98,25 @@ function ensure_rust() {
 function set_up_ssh_agent() {
     systemctl --user enable ssh-agent
     systemctl --user start ssh-agent
+}
+
+function set_up_steam() {
+    if type steam >/dev/null 2>&1; then
+        return
+    fi
+    # CHECK IS STEAM IS ALREADY INSTALLED
+
+    # Enable multilib for 32 pkgs
+    sudo sed -zi 's@#\[multilib\]\n#Include = /etc/pacman.d/mirrorlist@\[multilib\]\nInclude = /etc/pacman.d/mirrorlist@' /etc/pacman.conf
+    yay -Sy --noconfirm
+
+    echo "Verify GPU driver in use:"
+    lspci -v | grep -A 10 VGA
+
+    yay -S steam
+
+    sudo sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+    sudo locale-gen
 }
 
 main "$@"
