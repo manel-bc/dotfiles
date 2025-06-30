@@ -16,6 +16,8 @@ font pango:JetBrains Mono 10
 ### Output configuration
 output * bg ~/.config/sway/gruvbox-dark-lines-scalable.svg fit
 
+for_window [shell="xwayland"] title_format "[XWayland] %title"
+
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
