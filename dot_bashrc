@@ -12,7 +12,7 @@ PS1='[\u@\h \W]\$ '
 export EDITOR=micro
 export TERM=alacritty
 
-# Only dtop into fish shell if parent is not fish
+# Only drop into fish shell if parent is not fish
 # Also allow for bash -c "echo hello" to run in bash
 if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} && ${SHLVL} == 1 ]]
 then

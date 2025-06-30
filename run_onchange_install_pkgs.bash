@@ -7,13 +7,14 @@ function main() {
 
     install_yay
 
+    set_up_fish
     set_up_sound
+    set_up_ssh_agent
 
     # Install packages
     yay_install \
         firefox \
         polkit \
-        fish \
         alacritty \
         less \
         bat \
@@ -54,6 +55,8 @@ function yay_install() {
 }
 
 function install_yay() {
+    sudo sed -i 's/#Color/Color/' /etc/pacman.conf
+
     if command -v yay >/dev/null 2>&1
     then
         return
@@ -67,6 +70,8 @@ function install_yay() {
 }
 
 function set_up_fish() {
+    yay_install fish
+
     # Disable greeting
     fish -c "set -U fish_greeting"
 }
@@ -88,6 +93,11 @@ function set_up_launcher() {
 function ensure_rust() {
     yay_install rustup
     rustup toolchain install stable --no-self-update
+}
+
+function set_up_ssh_agent() {
+    systemctl --user enable ssh-agent
+    systemctl --user start ssh-agent
 }
 
 main "$@"
