@@ -1,6 +1,11 @@
 [user]
-	email = manelbc+github@pm.me
+	email = 84017890+manel-bc@users.noreply.github.com
 	name = manel-bc
 [core]
 	editor = micro
 	autoclrf = input
+[init]
+	defaultBranch = main
+
+[url "git@github.com:"]
+  insteadOf = https://github.com/
