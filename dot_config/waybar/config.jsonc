@@ -24,7 +24,7 @@
         "memory",
         //"battery",
         "network",
-        "pulseaudio"
+        "wireplumber"
     ],
 
     "sway/workspaces": {
@@ -78,13 +78,13 @@
         "tooltip": false
     },
 
-    "pulseaudio": {
+    "wireplumber": {
         "scroll-step": 5,
         "max-volume": 150,
         "format": "vol {volume}%",
-        "format-bluetooth": "vol {volume}%",
+        "format-muted": "vol mute",
         "nospacing": 1,
-        "on-click": "pwvucontrol",
+        "on-click": "easyeffects",
         "tooltip": true,
     }
 }

@@ -104,7 +104,6 @@ function set_up_steam() {
     if type steam >/dev/null 2>&1; then
         return
     fi
-    # CHECK IS STEAM IS ALREADY INSTALLED
 
     # Enable multilib for 32 pkgs
     sudo sed -zi 's@#\[multilib\]\n#Include = /etc/pacman.d/mirrorlist@\[multilib\]\nInclude = /etc/pacman.d/mirrorlist@' /etc/pacman.conf

@@ -16,6 +16,11 @@ font pango:JetBrains Mono 10
 ### Output configuration
 output * bg ~/.config/sway/gruvbox-dark-lines-scalable.svg fit
 
+output "Dell Inc. DELL S2722DC G3WGHD3" pos 0 0
+workspace 1 output "Dell Inc. DELL S2722DC G3WGHD3"
+
+# output "Dell Inc. DELL P2720DC 2DDVMK3" pos 2560 0
+
 for_window [shell="xwayland"] title_format "[XWayland] %title"
 
 # Example configuration:
