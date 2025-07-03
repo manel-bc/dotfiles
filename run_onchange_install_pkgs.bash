@@ -9,7 +9,7 @@ function main() {
 
     set_up_fish
     set_up_sound
-    set_up_ssh_agent
+    set_up_ssh
     set_up_steam
 
     # properly install and configure nerd font, emojis and asian font
@@ -95,7 +95,21 @@ function ensure_rust() {
     rustup toolchain install stable --no-self-update
 }
 
-function set_up_ssh_agent() {
+function set_up_ssh() {
+    local fileName="id_ed25519"
+    if [ -f ~/.ssh/$fileName ];then
+        return
+    fi
+
+    ssh-keygen \
+        -t ed25519 \
+        -f "$fileName" \
+        -C "84017890+manel-bc@users.noreply.github.com" \
+        -N ''
+    
+    echo "Public SSH key:"
+    cat ~/.ssh/"$fileName".pub
+
     systemctl --user enable ssh-agent
     systemctl --user start ssh-agent
 }
