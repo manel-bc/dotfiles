@@ -10,7 +10,9 @@ function main() {
     set_up_fish
     set_up_sound
     set_up_ssh
+    set_up_bluetooth
     set_up_steam
+    set_up_telegram
 
     # properly install and configure nerd font, emojis and asian font
 
@@ -90,6 +92,13 @@ function set_up_launcher() {
     echo ""
 }
 
+function set_up_telegram() {
+    echo "TODO: Set up Telegram"
+    # yay install 
+    # add .config/autostart .desktop to cz
+    # create .desktop or rename it from Telegram=>telegram
+}
+
 function ensure_rust() {
     yay_install rustup
     rustup toolchain install stable --no-self-update
@@ -130,6 +139,19 @@ function set_up_steam() {
 
     sudo sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
     sudo locale-gen
+}
+
+function set_up_bluetooth() {
+    yay_install bluez bluez-utils overskride
+
+    # Have systemd load it at boot
+    echo "btusb" | sudo tee /etc/modules-load.d/bluetooth.conf
+
+    # Load it now manually
+    sudo modprobe btusb
+
+    sudo systemctl enable --now bluetooth.service
+    sudo systemctl start bluetooth.service
 }
 
 main "$@"
