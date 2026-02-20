@@ -1,1 +1,10 @@
-AddKeysToAgent  yes
+{{- if eq .chezmoi.hostname "mac.local" }}
+Include /Users/manuel.becerracampos/.colima/ssh_config
+{{- end }}
+
+AddKeysToAgent yes
+
+Host github.com
+  User git
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
