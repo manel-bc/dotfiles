@@ -1,6 +1,7 @@
 [user]
 	email = 84017890+manel-bc@users.noreply.github.com
 	name = manel-bc
+	signingkey = C52F8324AB42D154
 [core]
 	editor = micro
 	autoclrf = input
@@ -14,3 +15,13 @@
 	insteadOf = https://gitlab.com/
 [url "ssh://git@bitbucket.org/"]
 	insteadOf = https://bitbucket.org/
+[gpg]
+	format = openpgp
+[commit]
+	gpgsign = true
+
+[includeIf "gitdir:~/code/github/"]
+    path = ~/.gitconfig-github
+
+[includeIf "gitdir:~/code/codeberg/"]
+    path = ~/.gitconfig-codeberg
